@@ -138,7 +138,11 @@ function App() {
                 `${effect[0]?.numberOne} * ${effect[1]?.numberTwo} = ${result}`}
               {operation === "dividing" &&
                 `${effect[0]?.numberOne} / ${effect[1]?.numberTwo} = ${
-                  Number.isInteger(result) ? result : result.toFixed(2)
+                  result == "waiting for operation!"
+                    ? result
+                    : Number.isInteger(result)
+                    ? result
+                    : result.toFixed(2)
                 }`}
             </p>
           )}
