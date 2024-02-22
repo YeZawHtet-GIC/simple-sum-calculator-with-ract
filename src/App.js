@@ -6,7 +6,7 @@ function App() {
   const [numberTwo, setNumberTwo] = useState("");
   const [add, setAdd] = useState("");
 
-  const calculate = ()=>{
+  const calculate = () => {
     //!checking provide number
     if (numberOne === "" || numberTwo === "") {
       alert("Please enter numbers to calculate!");
@@ -25,11 +25,16 @@ function App() {
   };
 
   return (
-    <div className="bg-dark col-md-6 offset-3 rounded">
-      <h3 className="text-center text-warning pt-4">Adding Two Number</h3>
-      <div className="d-flex justify-content-center align-items-center mt-5">
-        <div className=" p-2 bg-dark rounded">
-          <label htmlFor="NumberOne" className="text-warning">Number One</label>
+    <div
+      className="d-flex justify-content-center flex-column"
+      style={{ height: "100vh" }}
+    >
+      <div className="bg-dark col-md-6 offset-3 rounded">
+        <h3 className="text-center text-warning py-3">Add Two Number</h3>
+        <div className="col-md-6 offset-3 bg-dark rounded">
+          <label htmlFor="NumberOne" className="text-warning form-label">
+            Number One :
+          </label>
           <input
             type="text"
             value={numberOne}
@@ -37,7 +42,9 @@ function App() {
             className="form-control mb-3"
             placeholder="Enter Number 1"
           />
-          <label htmlFor="NumberTwo" className="text-warning">Number Two</label>
+          <label htmlFor="NumberTwo" className="text-warning form-label">
+            Number Two :
+          </label>
           <input
             type="text"
             value={numberTwo}
@@ -45,12 +52,14 @@ function App() {
             className="form-control mb-3"
             placeholder="Enter Number 2"
           />
-          <button type="submit" onClick={calculate} className="btn btn-primary">
+          <button type="submit" onClick={calculate} className="btn btn-outline-primary px-3">
             Sum
           </button>
         </div>
+        <h3 className="text-warning col-md-6 offset-3 py-3">
+          Sum Result is : {add}
+        </h3>
       </div>
-      <h3 className="text-center text-warning py-3">Sum Result is : {add}</h3>
     </div>
   );
 }
