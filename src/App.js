@@ -29,20 +29,27 @@ function App() {
         setOperation("adding");
         break;
       case "subtract":
-        num1 < num2
-          ? alert("Number 1 must be larger than Number 2")
-          : setResult(num1 - num2);
-        setOperation("subtracting");
+        if (num1 < num2) {
+          alert("Number 1 must be larger than Number 2");
+          setOperation("");
+          setResult("");
+        } else {
+          setResult(num1 - num2);
+          setOperation("subtracting");
+        }
         break;
       case "multiply":
         setResult(num1 * num2);
         setOperation("multiplying");
         break;
       case "division":
-        num1 < num2
-          ? alert("Number 1 must be larger than Number 2")
-          : setResult(num1 / num2);
-        setOperation("dividing");
+        if (num1 < num2) {
+          alert("Number 1 must be larger than Number 2");
+            setOperation("");
+            setResult("");
+        } else {
+          setResult(num1 / num2); setOperation("dividing");
+        }
         break;
       default:
         break;
@@ -90,28 +97,28 @@ function App() {
           <button
             type="submit"
             onClick={() => calculate("add")}
-            className="btn btn-outline-primary px-3 mr-2"
+            className="btn btn-outline-primary px-3 me-2 mb-2 "
           >
             Sum
           </button>
           <button
             type="submit"
             onClick={() => calculate("subtract")}
-            className="btn btn-outline-primary px-3 mr-2"
+            className="btn btn-outline-primary px-3 me-2 mb-2 "
           >
             Subtract
           </button>
           <button
             type="submit"
             onClick={() => calculate("multiply")}
-            className="btn btn-outline-primary px-3 mr-2"
+            className="btn btn-outline-primary px-3 me-2 mb-2"
           >
             Multiply
           </button>
           <button
             type="submit"
             onClick={() => calculate("division")}
-            className="btn btn-outline-primary px-3"
+            className="btn btn-outline-primary px-3 mb-2"
           >
             Division
           </button>
