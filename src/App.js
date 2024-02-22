@@ -4,7 +4,8 @@ import "./App.css";
 function App() {
   const [numberOne, setNumberOne] = useState("");
   const [numberTwo, setNumberTwo] = useState("");
-
+  //! Testing useEffect
+  const [effect, setEffect] = useState([]);
   //!Result for add, subtract, multiply, divide
   const [result, setResult] = useState("");
   //!catching which operation is made now
@@ -12,7 +13,8 @@ function App() {
 
   //testing useEffect
   useEffect(() => {
-    console.log(numberOne, numberTwo);
+    setEffect([{ numberOne }, { numberTwo }]);
+    setResult("waiting for operation!");
   }, [numberOne, numberTwo]);
 
   const calculate = (operation) => {
@@ -45,10 +47,11 @@ function App() {
       case "division":
         if (num1 < num2) {
           alert("Number 1 must be larger than Number 2");
-            setOperation("");
-            setResult("");
+          setOperation("");
+          setResult("");
         } else {
-          setResult(num1 / num2); setOperation("dividing");
+          setResult(num1 / num2);
+          setOperation("dividing");
         }
         break;
       default:
@@ -123,16 +126,18 @@ function App() {
             Division
           </button>
         </div>
+        //!Result Container
         <div className="text-warning col-md-6 offset-3 py-3">
           {result !== "" && (
-            <p>
-              {operation === "adding" && `Sum Result is : ${result}`}
+            <p className="fw-bolder fs-5">
+              {operation === "adding" &&
+                `${effect[0]?.numberOne} + ${effect[1]?.numberTwo} = ${result}`}
               {operation === "subtracting" &&
-                `Subtraction Result is : ${result}`}
+                `${effect[0]?.numberOne} - ${effect[1]?.numberTwo} = ${result}`}
               {operation === "multiplying" &&
-                `Multiplication Result is : ${result}`}
+                `${effect[0]?.numberOne} * ${effect[1]?.numberTwo} = ${result}`}
               {operation === "dividing" &&
-                `Division Result is : ${
+                `${effect[0]?.numberOne} / ${effect[1]?.numberTwo} = ${
                   Number.isInteger(result) ? result : result.toFixed(2)
                 }`}
             </p>
