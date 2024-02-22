@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
+import { ToastContainer, toast } from "react-toastify";
 
 function App() {
   const [numberOne, setNumberOne] = useState("");
@@ -19,7 +20,7 @@ function App() {
 
   const calculate = (operation) => {
     if (numberOne === "" || numberTwo === "") {
-      alert("Please enter numbers to calculate!");
+      toast.error("Please enter numbers to calculate!");
       return;
     }
     const num1 = parseInt(numberOne);
@@ -32,7 +33,7 @@ function App() {
         break;
       case "subtract":
         if (num1 < num2) {
-          alert("Number 1 must be larger than Number 2");
+          toast.warning("Number 1 must be larger than Number 2");
           setOperation("");
           setResult("");
         } else {
@@ -46,7 +47,7 @@ function App() {
         break;
       case "division":
         if (num1 < num2) {
-          alert("Number 1 must be larger than Number 2");
+          toast.warning("Number 1 must be larger than Number 2");
           setOperation("");
           setResult("");
         } else {
