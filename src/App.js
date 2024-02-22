@@ -26,11 +26,11 @@ function App() {
 
   return (
     <div
-      className="d-flex justify-content-center flex-column"
+      className="d-flex justify-content-center flex-column bg-dark"
       style={{ height: "100vh" }}
     >
-      <div className="bg-dark col-md-6 offset-3 rounded">
-        <h3 className="text-center text-warning py-3">Add Two Number</h3>
+      <div className="bg-dark col-md-6 offset-3 rounded shadow">
+        <h3 className="text-center text-warning py-3">Sum Calculator</h3>
         <div className="col-md-6 offset-3 bg-dark rounded">
           <label htmlFor="NumberOne" className="text-warning form-label">
             Number One :
