@@ -1,24 +1,56 @@
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 
 function App() {
   const [numberOne, setNumberOne] = useState("");
   const [numberTwo, setNumberTwo] = useState("");
-  const [add, setAdd] = useState("");
 
-  const calculate = () => {
-    //!checking provide number
+  //!Result for add, subtract, multiply, divide
+  const [result, setResult] = useState("");
+  //!catching which operation is made now
+  const [operation, setOperation] = useState("");
+
+  //testing useEffect
+  useEffect(() => {
+    console.log(numberOne, numberTwo);
+  }, [numberOne, numberTwo]);
+
+  const calculate = (operation) => {
     if (numberOne === "" || numberTwo === "") {
       alert("Please enter numbers to calculate!");
       return;
     }
+    const num1 = parseInt(numberOne);
+    const num2 = parseInt(numberTwo);
 
-    const result = parseInt(numberOne) + parseInt(numberTwo);
-    setAdd(result);
+    switch (operation) {
+      case "add":
+        setResult(num1 + num2);
+        setOperation("adding");
+        break;
+      case "subtract":
+        num1 < num2
+          ? alert("Number 1 must be larger than Number 2")
+          : setResult(num1 - num2);
+        setOperation("subtracting");
+        break;
+      case "multiply":
+        setResult(num1 * num2);
+        setOperation("multiplying");
+        break;
+      case "division":
+        num1 < num2
+          ? alert("Number 1 must be larger than Number 2")
+          : setResult(num1 / num2);
+        setOperation("dividing");
+        break;
+      default:
+        break;
+    }
   };
-  //!preventing input string characters
+
   const handleNumberChange = (setValue, value) => {
-    const regex = /^[0-9\b]+$/; // Regular expression to match numbers
+    const regex = /^[0-9\b]+$/;
     if (value === "" || regex.test(value)) {
       setValue(value);
     }
@@ -29,9 +61,12 @@ function App() {
       className="d-flex justify-content-center flex-column bg-dark"
       style={{ height: "100vh" }}
     >
-      <div className="bg-dark col-md-6 offset-3 rounded shadow">
-        <h3 className="text-center text-warning py-3">Sum Calculator</h3>
-        <div className="col-md-6 offset-3 bg-dark rounded">
+      <div
+        className="bg-dark col-md-6 offset-3 rounded shadow"
+        style={{ border: "1px solid rgb(77, 77, 0)" }}
+      >
+        <h3 className="text-center text-warning py-3">Calculator</h3>
+        <div className="col-md-7 offset-2 bg-dark rounded">
           <label htmlFor="NumberOne" className="text-warning form-label">
             Number One :
           </label>
@@ -52,13 +87,50 @@ function App() {
             className="form-control mb-3"
             placeholder="Enter Number 2"
           />
-          <button type="submit" onClick={calculate} className="btn btn-outline-primary px-3">
+          <button
+            type="submit"
+            onClick={() => calculate("add")}
+            className="btn btn-outline-primary px-3 mr-2"
+          >
             Sum
           </button>
+          <button
+            type="submit"
+            onClick={() => calculate("subtract")}
+            className="btn btn-outline-primary px-3 mr-2"
+          >
+            Subtract
+          </button>
+          <button
+            type="submit"
+            onClick={() => calculate("multiply")}
+            className="btn btn-outline-primary px-3 mr-2"
+          >
+            Multiply
+          </button>
+          <button
+            type="submit"
+            onClick={() => calculate("division")}
+            className="btn btn-outline-primary px-3"
+          >
+            Division
+          </button>
         </div>
-        <h3 className="text-warning col-md-6 offset-3 py-3">
-          Sum Result is : {add}
-        </h3>
+        <div className="text-warning col-md-6 offset-3 py-3">
+          {result !== "" && (
+            <p>
+              {operation === "adding" && `Sum Result is : ${result}`}
+              {operation === "subtracting" &&
+                `Subtraction Result is : ${result}`}
+              {operation === "multiplying" &&
+                `Multiplication Result is : ${result}`}
+              {operation === "dividing" &&
+                `Division Result is : ${
+                  Number.isInteger(result) ? result : result.toFixed(2)
+                }`}
+            </p>
+          )}
+        </div>
       </div>
     </div>
   );
