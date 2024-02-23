@@ -4,11 +4,30 @@ import "./index.css";
 import App from "./App";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { ToastContainer } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Calculator from "./components/Calculator";
+import TestUseMemo from "./components/TestUseMemo";
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    children: [
+      {
+        path: "/Calculator",
+        element: <Calculator />,
+      },
+      {
+        path: "/TestUseMemo",
+        element: <TestUseMemo />,
+      },
+    ],
+  },
+]);
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <>
-    <App />
+    <RouterProvider router={router} />
     <ToastContainer />
   </>
 );
