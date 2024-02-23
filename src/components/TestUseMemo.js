@@ -16,16 +16,16 @@ export default function TestUseMemo() {
     return numberOne % 2 === 0;
   }, [numberOne]);
   return (
-    <div className="container">
-      <h1>TestUseMemo</h1>
-      <h3 className="text-warning">
+    <div className="col-md-6 offset-3 p-5 bg-black rounded shadow d-flex justify-content-center align-items-center flex-column">
+      <h1 className="text-primary mb-5">TestUseMemo</h1>
+      <h3 className="text-warning mb-3">
         Number One is : {numberOne} {isEven ? "is Even" : "is Odd"}
       </h3>
-      <button className="btn btn-outline-warning" onClick={changeNumber1}>
+      <button className="btn btn-outline-primary mb-3" onClick={changeNumber1}>
         Change NumberOne
       </button>
-      <h3 className="text-warning">Number Two is : {numberTwo}</h3>
-      <button className="btn btn-outline-warning" onClick={changeNumber2}>
+      <h3 className="text-warning mb-3">Number Two is : {numberTwo}</h3>
+      <button className="btn btn-outline-primary" onClick={changeNumber2}>
         Change NumberTwo
       </button>
     </div>
