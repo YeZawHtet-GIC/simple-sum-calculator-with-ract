@@ -9,6 +9,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Calculator from "./components/Calculator";
 import TestUseMemo from "./components/TestUseMemo";
 import TestUseRef from "./components/TestUseRef";
+import TestUseCallback from "./components/TestUseCallback";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
       {
         path: "/TestUseRef",
         element: <TestUseRef />,
+      },
+      {
+        path: "/TestUseCallback",
+        element: <TestUseCallback />,
       },
     ],
   },

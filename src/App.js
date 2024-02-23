@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import { Outlet } from "react-router";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function App() {
   return (
@@ -29,10 +29,19 @@ function App() {
               </NavLink>
             </li>
             <li className="nav-item active">
-              <NavLink className="nav-link" to="/TestUseMemo">Check TestUseMemo</NavLink>
+              <NavLink className="nav-link" to="/TestUseMemo">
+                Check TestUseMemo
+              </NavLink>
             </li>
             <li className="nav-item active">
-              <NavLink className="nav-link" to="/TestUseRef">Check TestUseRef</NavLink>
+              <NavLink className="nav-link" to="/TestUseRef">
+                Check TestUseRef
+              </NavLink>
+            </li>
+            <li className="nav-item active">
+              <NavLink className="nav-link" to="/TestUseCallback">
+                Check TestUseCallback
+              </NavLink>
             </li>
           </ul>
         </div>
