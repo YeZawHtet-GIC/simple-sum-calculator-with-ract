@@ -17,7 +17,7 @@ export default function TestUseMemo() {
   }, [numberOne]);
   return (
     <div className="col-md-6 offset-3 p-5 bg-black rounded shadow d-flex justify-content-center align-items-center flex-column">
-      <h1 className="text-primary mb-5">TestUseMemo</h1>
+      <h1 className="text-primary mb-5">Test useMemo</h1>
       <h3 className="text-warning mb-3">
         Number One is : {numberOne} {isEven ? "is Even" : "is Odd"}
       </h3>

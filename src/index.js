@@ -8,6 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Calculator from "./components/Calculator";
 import TestUseMemo from "./components/TestUseMemo";
+import TestUseRef from "./components/TestUseRef";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
       {
         path: "/TestUseMemo",
         element: <TestUseMemo />,
+      },
+      {
+        path: "/TestUseRef",
+        element: <TestUseRef />,
       },
     ],
   },
