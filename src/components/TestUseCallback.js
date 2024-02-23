@@ -19,13 +19,13 @@ export default function TestUseCallback() {
     <div className="col-md-6 offset-3 p-5 bg-black rounded shadow d-flex justify-content-center align-items-center flex-column">
       <h1 className="text-primary mb-3">Test useCallback</h1>
       <div className="bg-dark p-3 rounded mb-3">
-        <p className="text-warning fw-bolder">
+        <p className="text-primary fw-bolder">
           useCallback returns a memoized callback function.
         </p>
-        <p className="text-warning fw-bolder">
+        <p className="text-primary fw-bolder">
           useCallback for memoizing callback functions.
         </p>
-        <p className="text-warning fw-bolder">
+        <p className="text-primary fw-bolder">
           In useCallback, dependencies are used to determine when to recreate
           the memoized callback function.
         </p>
