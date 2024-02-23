@@ -9,7 +9,7 @@ export default function TestUseRef() {
   };
   return (
     <div className="bg-black overflow-hidden py-4 px-3 rounded col-md-6 offset-3 d-flex justify-content-center align-items-center flex-column">
-      <h1>Test useRef</h1>
+      <h1 className="text-primary">Test useRef</h1>
       <form onSubmit={submitForm}>
         <input
           type="text"
